@@ -1,5 +1,7 @@
 
 (function (window) {
+  // var requestIp = 'localhost'
+  var requestIp = '170.130.175.10'
   var isSupportSW = !!window.navigator.serviceWorker
   if (!isSupportSW) return alert('dont support ServiceWorker')
   var serviceWorker = window.navigator.serviceWorker
@@ -63,7 +65,7 @@
       setTimeout(function () {
         // console.log('push')
         // console.log('navigator.serviceWorker.controller', navigator.serviceWorker.controller)
-        // window.postMessage('hello', 'http://localhost:6780/sw.js')
+        // window.postMessage('hello', 'http://'+requestIp+':6780/sw.js')
         navigator.serviceWorker.ready.then(function (reg) {
           reg.active.postMessage('hello')
         })
@@ -92,7 +94,7 @@
   })
 
   // setTimeout(function () {
-  //   fetch('http://localhost:6780/interface')
+  //   fetch('http://'+requestIp+':6780/interface')
   //     .then(function (response) { return response.json() })
   //     .then(function (data) { console.log(data) })
   // }, 5000)
@@ -111,7 +113,7 @@
     return outputArray;
   }
 
-  window.fetch('http://localhost:6780/getPublicKey').then(function (res) { return res.json() }).then(function (publicKey) {
+  window.fetch('http://' + requestIp + ':6780/getPublicKey').then(function (res) { return res.json() }).then(function (publicKey) {
     navigator.serviceWorker.ready.then(function (reg) {
       console.log(publicKey)
       // debugger
@@ -133,7 +135,7 @@
             userVisibleOnly: true,
             applicationServerKey: urlBase64ToUint8Array(publicKey)
           }).then(a => console.log('permissionState', a))
-          window.fetch('http://localhost:6780/sendSubscribeInfo', { method: 'post', body: JSON.stringify(subscribeInfo) })
+          window.fetch('http://' + requestIp + ':6780/sendSubscribeInfo', { method: 'post', body: JSON.stringify(subscribeInfo) })
             .then(function () { console.log('send subscribeInfo to back-end') })
             .catch(function (err) {
               console.log(err)

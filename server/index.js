@@ -9,6 +9,15 @@ const port = 6780
 let vapidKeys
 
 server.use(async function (ctx, next) {
+  ctx.set({
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Credentials': true,
+    'Access-Control-Allow-Methods': 'GET,POST,PUT,POST',
+    'Access-Control-Allow-Headers': 'x-requested-with,content-type'
+  })
+  await next()
+})
+server.use(async function (ctx, next) {
   // console.log(JSON.stringify(ctx))
   switch (ctx.path) {
     case '/interface': {
