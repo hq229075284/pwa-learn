@@ -32,12 +32,12 @@ server.use(async function (ctx, next) {
     case '/getPublicKey': {
       if (!vapidKeys) {
         vapidKeys = webpush.generateVAPIDKeys()
-        webpush.setVapidDetails(
-          'mailto:example@yourdomain.org',
-          vapidKeys.publicKey,
-          vapidKeys.privateKey
-        )
-        webpush.setGCMAPIKey('AAAAk6Ym1vI:APA91bESJX94nJOMlGlsnrCP8sOq96YZsG7OHzq_ffAOuRb5p2PEXshoidKmvfgRF2Scn2jEN-aZBM6IjDaLqx8KUE2F0J-iaJgbOX65kpgCyUlE_1G6nsSIiwQ9chJgt8KF2QNmOSw8')
+        // webpush.setVapidDetails(
+        //   'mailto:example@yourdomain.org',
+        //   vapidKeys.publicKey,
+        //   vapidKeys.privateKey
+        // )
+        // webpush.setGCMAPIKey('AAAAk6Ym1vI:APA91bESJX94nJOMlGlsnrCP8sOq96YZsG7OHzq_ffAOuRb5p2PEXshoidKmvfgRF2Scn2jEN-aZBM6IjDaLqx8KUE2F0J-iaJgbOX65kpgCyUlE_1G6nsSIiwQ9chJgt8KF2QNmOSw8')
       }
       ctx.response.status = 200
       ctx.response.type = 'application/json'
@@ -65,12 +65,20 @@ server.use(async function (ctx, next) {
       setTimeout(function () {
         console.log(subscribeInfo)
         console.log(JSON.stringify(subscribeInfo))
-        webpush.sendNotification(subscribeInfo, 'pushed from server')
-          .then(response => console.log('push response:', response))
-          .catch(e => {
-            console.log(e)
-            console.log(JSON.stringify(e))
-          })
+        // webpush.sendNotification(subscribeInfo, 'pushed from server')
+        //   .then(response => console.log('push response:', response))
+        //   .catch(e => {
+        //     console.log(e)
+        //     console.log(JSON.stringify(e))
+        //   })
+        webpush.sendNotification(subscribeInfo, 'another pushed from server', {
+          vapidDetails: {
+            subject: 'mailto:example_email@example.com',
+            publicKey: vapidKeys.publicKey,
+            privateKey: vapidKeys.privateKey
+          },
+          TTL: 60
+        })
       }, 3000)
       break
     }
