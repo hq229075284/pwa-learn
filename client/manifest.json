@@ -1,0 +1,16 @@
+{
+  "name": "启动动画的名字",
+  "short_name": "app图标的名字",
+  "icons": [
+    {
+      "src": "",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0000ff",
+  "display": "fullscreen",
+  "orientation": "portrait-primary",
+  "theme-color": "#00f"
+}
