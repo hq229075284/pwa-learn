@@ -37,6 +37,7 @@ server.use(async function (ctx, next) {
           vapidKeys.publicKey,
           vapidKeys.privateKey
         )
+        webpush.setGCMAPIKey('AAAAk6Ym1vI:APA91bESJX94nJOMlGlsnrCP8sOq96YZsG7OHzq_ffAOuRb5p2PEXshoidKmvfgRF2Scn2jEN-aZBM6IjDaLqx8KUE2F0J-iaJgbOX65kpgCyUlE_1G6nsSIiwQ9chJgt8KF2QNmOSw8')
       }
       ctx.response.status = 200
       ctx.response.type = 'application/json'
