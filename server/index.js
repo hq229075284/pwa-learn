@@ -62,6 +62,8 @@ server.use(async function (ctx, next) {
       ctx.response.type = 'application/json'
       ctx.response.body = ''
       setTimeout(function () {
+        console.log(subscribeInfo)
+        console.log(JSON.stringify(subscribeInfo))
         webpush.sendNotification(subscribeInfo, 'pushed from server')
           .then(response => console.log('push response:', response))
           .catch(e => {
