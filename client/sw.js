@@ -52,7 +52,7 @@ self.addEventListener('fetch1', function (event) {
   )
 })
 
-self.addEventListener('activity', function (event) {
+self.addEventListener('activate', function (event) {
   console.log('activity')
   event.waitUntil(
     Promise.all([
@@ -93,5 +93,8 @@ self.addEventListener('message', function (e) {
 
 self.addEventListener('push', function (e) {
   console.log('push', e)
-  console.log('pushed data', e.data)
+  console.log('pushed data', e.data.text())
+  self.registration.showNotification(e.data.text())
+  // e.waitUntil(
+  // )
 })
