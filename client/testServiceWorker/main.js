@@ -15,12 +15,18 @@ serviceWorkerContainer.register('./sw1.js', { scope: '/testServiceWorker/' })
 
 setTimeout(() => {
   console.log('exec sw2')
-  serviceWorkerContainer.register('./sw2.js', { scope: '/testServiceWorker/' })
+  serviceWorkerContainer.register('./sw2.js', { scope: '/testServiceWorker/client/' })
     .then(function (registration) {
-      console.log('scope:/testServiceWorker/client, register succuss')
+      console.log('scope:/testServiceWorker/client/, register succuss')
     })
     .catch(function (e) { console.error(e) })
 }, 10000)
+
+// serviceWorkerContainer.register('./sw2.js', { scope: '/testServiceWorker/' })
+//   .then(function (registration) {
+//     console.log('scope:/testServiceWorker/, register succuss')
+//   })
+//   .catch(function (e) { console.error(e) })
 
 serviceWorkerContainer.ready.then(function (reg) {
   console.log('scope', reg.scope)

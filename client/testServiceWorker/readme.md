@@ -9,4 +9,5 @@
 + 浏览器会自动检测service worker文件内容的更新
 + 通过event.waitUntil这个api，可以使事件一直处于触发中，直到入参的promise被resolve后，才会执行其它的浏览器实现的内部操作
   [参考](https://developer.mozilla.org/en-US/docs/Web/API/ExtendableEvent/waitUntil)
-+ 即使在`serviceWorkerContainer.ready.then`后，当前页面仍可能未被service worker控制，即controller为null
++ 即使在`serviceWorkerContainer.ready.then`中，当前页面仍可能未被service worker控制，即controller为null
++ 当前页面的service worker控制器为scope属性最接近当前url的service worker脚本
