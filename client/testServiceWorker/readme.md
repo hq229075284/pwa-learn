@@ -1,5 +1,5 @@
 + 仅在https或者localhost的情况下才能使用service worker
-+ 可以注册多个service worker
++ 在一个scope下只能注册一个service worker
 + service worker第一次安装的时候需要刷新页面或者在`activate`事件中执行`self.clients.claim()`才能在navigator.serviceWorker.controller上获得`ServiceWorker实例`
   [参考](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerContainer/controller)
 + 通过skipWaiting可以马上应用新的service worker，新的sw的状态从`waiting`变为`activated`
