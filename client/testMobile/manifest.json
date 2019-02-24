@@ -1,0 +1,17 @@
+{
+  "name": "启动动画的名字",
+  "short_name": "app图标的名字",
+  "icons": [
+    {
+      "src": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551000807089&di=4e17843eb4630c8dbe6f004a9a46e3f2&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201212%2F06%2F20121206102057_3NGuB.png",
+      "type": "image/png",
+      "sizes": "128x128"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0000ff",
+  "display": "fullscreen",
+  "orientation": "portrait-primary",
+  "theme-color": "#00f",
+  "gcm_sender_id": "AAAAk6Ym1vI:APA91bESJX94nJOMlGlsnrCP8sOq96YZsG7OHzq_ffAOuRb5p2PEXshoidKmvfgRF2Scn2jEN-aZBM6IjDaLqx8KUE2F0J-iaJgbOX65kpgCyUlE_1G6nsSIiwQ9chJgt8KF2QNmOSw8APA91bGmA7PQo0LDzfIfZl-jN4hcaqMsg4H9Ebz6FteDO4gfz_qTVRSA3AGR6OIkVBaGsQTT_7Ni9AP6LJwslcl3OK1pqQeUyDd7DqhZrBpONRONOc7Z4AM6h6Ex6hS7csDXMJMqU0vL"
+}
