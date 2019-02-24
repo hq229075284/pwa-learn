@@ -1,6 +1,7 @@
 
 // var requestIp = 'localhost'
 var requestIp = '170.130.175.10'
+// var requestIp = '192.168.0.101'
 var isSupportSW = !!window.navigator.serviceWorker
 if (!isSupportSW) {
   alert('dont support ServiceWorker')
@@ -38,8 +39,10 @@ window.fetch('http://' + requestIp + ':6780/getPublicKey')
       reg.pushManager.getSubscription()
         .then(function (subscribeInfo) {
           if (subscribeInfo) {
+            console.log('already has subscribe')
             return subscribeInfo
           } else {
+            console.log('start subscribe')
             return reg.pushManager.subscribe({
               userVisibleOnly: true,
               applicationServerKey: urlBase64ToUint8Array(publicKey)
